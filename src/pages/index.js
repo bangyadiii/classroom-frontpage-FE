@@ -1,15 +1,23 @@
-import Head from "next/head";
-import Image from "next/image";
+import Circle from "public/images/circle-hero-accent-1.svg";
+import Hero from "src/partials/Hero";
+import Navbar from "src/partials/Navbar";
 
-export default function Home() {
+function Home() {
     return (
         <>
-            <Head>
-                <title>Home | NextJs</title>
-            </Head>
-            <div className="bg-gray-600 min-h-screen flex justify-center items-center">
-                <h1 className=" text-white">Hello World</h1>
-            </div>
+            <main>
+                {/* section header dan hero */}
+                <section className="header-clipping pt-11">
+                    <Circle className="absolute bottom-0 left-0 w-1/6 text-biru-2" />
+                    <div className="sunshine  top-0 left-1/2"></div>
+                    {/* navbar container */}
+                    <div className="container mx-auto">
+                        <Navbar />
+                        <Hero />
+                    </div>
+                </section>
+            </main>
         </>
     );
 }
+export default Home;

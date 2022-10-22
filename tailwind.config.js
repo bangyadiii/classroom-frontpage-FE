@@ -39,6 +39,13 @@ module.exports = {
             purple: colors.purple,
             fuchsia: colors.fuchsia,
             pink: colors.pink,
+            orange: "#FE721C",
+            biru: {
+                DEFAULT: "#2E37A4",
+                1: "#2E37A4",
+                2: "#4D55BC",
+                3: "#161A4F",
+            },
             rose: colors.rose,
         }),
         columns: {
@@ -116,6 +123,7 @@ module.exports = {
         aspectRatio: {
             auto: "auto",
             square: "1 / 1",
+            "3/4": "3 / 4",
             video: "16 / 9",
         },
         backdropBlur: ({ theme }) => theme("blur"),
@@ -364,6 +372,7 @@ module.exports = {
         },
         fontFamily: {
             sans: [
+                "Poppins",
                 "ui-sans-serif",
                 "system-ui",
                 "-apple-system",
@@ -626,6 +635,8 @@ module.exports = {
             8: "2rem",
             9: "2.25rem",
             10: "2.5rem",
+            11: "3rem",
+            12: "3.25rem",
         },
         listStyleType: {
             none: "none",
