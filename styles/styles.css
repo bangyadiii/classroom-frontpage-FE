@@ -6,12 +6,15 @@
 * {
     @apply font-sans;
 }
-
+.link-wrapped {
+    /* buat bungkus div dengan link */
+    @apply cursor-pointer inset-0 z-20 absolute;
+    content: "";
+}
 .header-clipping {
     @apply relative;
     /* overflow-y: hidden; */
     height: 634px;
-    overflow-clip-margin: hidden;
 }
 .header-clipping .container {
     @apply relative;
@@ -33,4 +36,35 @@
     content: "";
     height: 648px;
     clip-path: polygon(0 0, 100% 0, 100% 86%, 0% 100%);
+}
+
+/* landing page course card */
+.course figure.course-image {
+    overflow: hidden;
+    perspective: 10000px;
+    position: relative;
+}
+.course figure.course-image svg.play-btn {
+    @apply absolute w-[46px] h-[46px] top-[calc(50%-23px)] left-1/2;
+    /* transform-origin: bottom; */
+    opacity: 0;
+    transform: translateY(0%) translateX(-50%) rotate(-180deg);
+    margin-top: 60px;
+    @apply transition-all duration-300;
+}
+
+.course:hover figure.course-image svg.play-btn {
+    /*  */
+    opacity: 1;
+    margin-top: 0;
+    transform: translateY(0%) translateX(-50%) rotate(0);
+}
+.course figure.course-image::before {
+    /*  */
+    content: "";
+    @apply bg-indigo-900 absolute inset-0 opacity-0 transition-all duration-300;
+}
+.course:hover figure.course-image::before {
+    /*  */
+    @apply opacity-50;
 }

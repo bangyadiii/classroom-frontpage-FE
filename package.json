@@ -11,7 +11,7 @@
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "axios": "^0.27.2",
-    "dotenv": "^16.0.2",
+    "dotenv": "^16.0.3",
     "next": "12.2.5",
     "next-compose-plugins": "^2.2.1",
     "next-images": "^1.8.4",

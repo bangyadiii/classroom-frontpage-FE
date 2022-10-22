@@ -4,17 +4,13 @@ const withPlugins = require("next-compose-plugins");
 const withImages = require("next-images");
 const path = require("path");
 
-const nextConfig = {
-    reactStrictMode: true,
-    swcMinify: true,
-    webpack: (config, options) => {
-        config.module.rules.push({
-            test: /\.svg$/,
-            use: "@svgr/webpack",
-        });
-
-        return config;
-    },
-};
-
-module.exports = nextConfig;
+module.exports = withPlugins([
+    withCss({}),
+    withImages({}),
+    withImageSVG({
+        include: path.resolve(__dirname, "./public/images"),
+        webpack(config, options) {
+            return config;
+        },
+    }),
+]);

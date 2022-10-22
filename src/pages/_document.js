@@ -23,7 +23,6 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head>
-                    <title>Classroom Micro</title>
                     <link rel="shortcut icon" href="/images/logo.ico" />
                 </Head>
                 <body>

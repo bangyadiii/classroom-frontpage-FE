@@ -1,18 +1,22 @@
 import Router from "next/router";
 import "../../styles/styles.css";
-import NProgress from "nprogress";
 import { ToastContainer } from "react-toastify";
 import "nprogress/nprogress.css";
 import "react-toastify/dist/ReactToastify.css";
+import { start, finish } from "../utils/nprogress.handler";
+import Head from "next/head";
 
-NProgress.configure({});
-Router.events.on("routeChangeStart", () => NProgress.start());
-Router.events.on("routeChangeComplete", () => NProgress.done());
-Router.events.on("routeChangeError", () => NProgress.done());
+// NProgress.configure({ color: "#fff" });
+Router.events.on("routeChangeStart", start);
+Router.events.on("routeChangeComplete", finish);
+Router.events.on("routeChangeError", finish);
 
 function MyApp({ Component, pageProps }) {
     return (
         <>
+            <Head>
+                <title>Classroom Micro</title>
+            </Head>
             <Component {...pageProps} />
             <ToastContainer position="top-right"></ToastContainer>
         </>
