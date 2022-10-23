@@ -16,7 +16,7 @@ function CourseCard({ course }) {
                     <span className="text-sm text-gray-400">
                         {course?.level ?? "Unkown"}
                     </span>
-                    <Link href="/course/[slug]" as={`/course/${course.id}`}>
+                    <Link href="/courses/[slug]" as={`/courses/${course.id}`}>
                         <a className="link-wrapped"></a>
                     </Link>
                 </div>

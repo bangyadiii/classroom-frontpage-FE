@@ -1,4 +1,6 @@
 import Circle from "public/images/circle-hero-accent-1.svg";
+import Category from "src/partials/Category";
+import Footer from "src/partials/Footer";
 import Hero from "src/partials/Hero";
 import Navbar from "src/partials/Navbar";
 import NewCourseList from "src/partials/NewCourseList";
@@ -11,7 +13,7 @@ function Home({ data }) {
             <main>
                 {/* section header dan hero */}
                 <section className="header-clipping pt-11">
-                    <Circle className="absolute bottom-0 left-0 w-1/6 text-biru-2" />
+                    <Circle className="absolute bottom-0 left-0 w-1/6 text-biru-2 stroke-biru-2" />
                     <div className="sunshine  top-0 left-1/2"></div>
                     {/* navbar container */}
                     <div className="container mx-auto">
@@ -25,13 +27,24 @@ function Home({ data }) {
                 <section className="container mx-auto mt-24">
                     <NewCourseList courses={data} />
                 </section>
+                <section className="container mx-auto mt-24 mb-24">
+                    <Category />
+                </section>
+                <section className="mt-32 bg-biru-3 py-12">
+                    <div className="container mx-auto">
+                        <Footer />
+                    </div>
+                </section>
             </main>
         </>
     );
 }
 Home.getInitialProps = async () => {
     try {
-        const result = await instance.get("/courses").then((res) => res.data);
+        const limit = 4;
+        const result = await instance
+            .get(`/courses?limit=${limit}`)
+            .then((res) => res.data);
         return { data: result.data };
     } catch (error) {
         console.log(error);

@@ -4,13 +4,16 @@
 @tailwind utilities;
 
 * {
-    @apply font-sans;
+    @apply font-sans text-biru-4;
 }
 .link-wrapped {
     /* buat bungkus div dengan link */
     @apply cursor-pointer inset-0 z-20 absolute;
     content: "";
 }
+/* .container {
+    padding: 30px 130px;
+} */
 .header-clipping {
     @apply relative;
     /* overflow-y: hidden; */
@@ -36,6 +39,11 @@
     content: "";
     height: 648px;
     clip-path: polygon(0 0, 100% 0, 100% 86%, 0% 100%);
+}
+.header_course_detail {
+    background-image: url("/images/bg-header-course-detail.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* landing page course card */
@@ -66,5 +74,20 @@
 }
 .course:hover figure.course-image::before {
     /*  */
-    @apply opacity-50;
+    @apply opacity-60;
+}
+
+/* Category Card */
+.category-card:hover {
+    @apply border-0 bg-biru-2;
+    filter: drop-shadow(0px 6px 15px rgba(77, 85, 188, 0.4));
+}
+.category-card:hover .category-icon {
+    @apply fill-white;
+}
+.category-card:hover .category-name {
+    @apply text-white;
+}
+.category-card:hover .category-courses {
+    @apply text-gray-300;
 }

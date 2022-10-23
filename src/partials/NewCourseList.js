@@ -8,7 +8,7 @@ function NewCourseList({ courses }) {
             <div className="flex justify-between items-center">
                 <div>
                     <span className="text-gray-400 text-sm">New Classess</span>
-                    <h4 className="text-xl font-medium">
+                    <h4 className="text-2xl font-medium">
                         Summer <span className="text-teal-500">Productive</span>
                     </h4>
                 </div>
@@ -23,7 +23,7 @@ function NewCourseList({ courses }) {
             <div className="my-12 flex gap-x-4">
                 {courses?.length > 0 ? (
                     courses.map((item, i) => {
-                        if (i < 4) return <CourseCard course={item} key={i} />;
+                        return <CourseCard course={item} key={i} />;
                     })
                 ) : (
                     <div className="w-full text-center">Courses Not Found</div>

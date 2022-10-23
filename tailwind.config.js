@@ -45,6 +45,7 @@ module.exports = {
                 1: "#2E37A4",
                 2: "#4D55BC",
                 3: "#161A4F",
+                4: "#132B50",
             },
             rose: colors.rose,
         }),
