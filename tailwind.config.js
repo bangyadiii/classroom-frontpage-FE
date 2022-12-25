@@ -19,7 +19,10 @@ module.exports = {
             black: colors.black,
             white: colors.white,
             slate: colors.slate,
-            gray: colors.gray,
+            gray: {
+                ...colors.gray,
+                100: "#f7f7f7",
+            },
             zinc: colors.zinc,
             neutral: colors.neutral,
             stone: colors.stone,

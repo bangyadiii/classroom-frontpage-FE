@@ -1,4 +1,5 @@
 import Circle from "public/images/circle-hero-accent-1.svg";
+import coursesRequest from "src/constants/courses.request";
 import Category from "src/partials/Category";
 import Footer from "src/partials/Footer";
 import Hero from "src/partials/Hero";
@@ -39,17 +40,26 @@ function Home({ data }) {
         </>
     );
 }
-Home.getInitialProps = async () => {
+export async function getServerSideProps(props) {
+    const { res } = props;
+
+    res.setHeader(
+        "Cache-Control",
+        "public, x-maxage=10, stale-while-reavlaidate=59"
+    );
+
     try {
-        const limit = 4;
-        const result = await instance
-            .get(`/courses?limit=${limit}`)
-            .then((res) => res.data);
-        return { data: result.data };
+        const result = await coursesRequest.all({ limit: 4 });
+        console.log(result);
+        return {
+            props: {
+                data: result.data,
+            },
+        };
     } catch (error) {
         console.log(error);
         return error;
     }
-};
+}
 
 export default Home;

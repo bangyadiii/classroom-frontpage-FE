@@ -9,7 +9,8 @@ module.exports = withPlugins([
     withImages({}),
     withImageSVG({
         include: path.resolve(__dirname, "./public/images"),
-        webpack(config, options) {
+        
+        webpack(config, options) { 
             return config;
         },
     }),

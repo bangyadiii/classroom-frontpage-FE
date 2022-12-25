@@ -1,6 +1,12 @@
-import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 function Hero() {
+    const [email, setEmail] = useState("");
+
+    const url = process.env.APP_MEMBERPAGE_URL ?? "http://localhost:3500";
+    function onSubmit(e) {
+        e.preventDefault();
+        window.open(`${url}/register?email=${email}`);
+    }
     return (
         <section className="flex justify-between  mt-32 ">
             <div className="w-6/12">
@@ -15,13 +21,20 @@ function Hero() {
                     We provide tons of pathskill that you can choose and focus
                     on{" "}
                 </p>
-                <form className="email-input mt-12 w-4/5 flex">
+                <form
+                    className="email-input mt-12 w-4/5 flex"
+                    onSubmit={onSubmit}
+                >
                     <div className="w-7/10 px-6 pt-3 bg-white">
                         <input
                             type="text"
                             name="email"
                             id="hero-email-input "
                             placeholder="Your email address"
+                            value={email}
+                            onChange={(e) => {
+                                setEmail(e.target.value);
+                            }}
                             className="bg-transparent outline-none"
                         />
                     </div>
