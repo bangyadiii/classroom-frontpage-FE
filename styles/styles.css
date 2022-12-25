@@ -40,11 +40,11 @@
     height: 648px;
     clip-path: polygon(0 0, 100% 0, 100% 86%, 0% 100%);
 }
-.header_course_detail {
+/* .header_course_detail {
     background-image: url("/images/bg-header-course-detail.png");
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 
 /* landing page course card */
 .course figure.course-image {
@@ -90,4 +90,101 @@
 }
 .category-card:hover .category-courses {
     @apply text-gray-300;
+}
+
+.video-wrapper iframe {
+    @apply absolute inset-0 top-0 left-0 w-full h-full;
+}
+
+.course-price {
+    transition: all ease-in-out 0.45s;
+    position: fixed;
+    bottom: 0;
+    box-shadow: 0 -8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.course-price-enter {
+    opacity: 0;
+    bottom: -100%;
+}
+
+.course-price-enter-active {
+    opacity: 1;
+    bottom: 0;
+}
+
+.course-price-exit {
+    opacity: 1;
+    bottom: 0;
+}
+.course-price-exit-active {
+    opacity: 1;
+    bottom: -100%;
+}
+
+.course-price-exit-done {
+    bottom: 0;
+    opacity: 1;
+    position: fixed;
+}
+
+.modal-close {
+    @apply absolute right-0 cursor-pointer inline-block transition-all ease-in hover:bg-orange  rounded-full;
+    width: 30px;
+    height: 30px;
+}
+
+.modal-close::before,
+.modal-close::after {
+    content: "";
+    @apply absolute bg-white hover:bg-gray-700;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 1px;
+    margin-left: -25%;
+}
+
+.modal-close::before {
+    transform: rotate(45deg);
+}
+.modal-close::after {
+    transform: rotate(-45deg);
+}
+
+.overlay {
+    @apply transition-all duration-500;
+}
+
+.overlay-enter {
+    opacity: 0;
+}
+.overlay-enter-active {
+    opacity: 1;
+}
+.overlay-exit {
+    opacity: 1;
+}
+.overlay-exit-active {
+    opacity: 0;
+}
+.overlay-enter-done {
+    opacity: 1;
+}
+
+.accordion-item {
+    @apply transition-all duration-500 ease-in;
+}
+
+.accordion-item-enter {
+    opacity: 0;
+}
+.accordion-item-enter-active {
+    opacity: 1;
+}
+.accordion-item-exit{
+    opacity: 1;
+}
+.accordion-item-exit-active {
+    opacity: 0;
 }
