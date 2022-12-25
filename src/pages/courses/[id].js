@@ -166,6 +166,38 @@ function DetailCourse({ course }) {
                     )}
                 </div>
             </section>
+
+            {/* our instructor */}
+            <section className="container mx-auto px-10 mt-10">
+                <h2 className="text-2xl font-medium my-5 leading-relaxed">
+                    Our <span className="text-teal-500">Instructor</span>
+                </h2>
+                <div className="w-full sm:w-8/12 flex">
+                    {course?.mentor?.profile ? (
+                        <img
+                            src={course?.mentor?.profile}
+                            alt={course?.mentor?.name}
+                            height={80}
+                            width={80}
+                            className={`rounded-full bg-gray-400 flex justify-center items-center text-gray-200 font-mono`}
+                        />
+                    ) : (
+                        <img
+                            src={`public/images/man(1).png`}
+                            alt={course?.mentor?.name}
+                            height={80}
+                            width={80}
+                            className={`rounded-full bg-gray-400 flex justify-center items-center text-gray-200 font-mono`}
+                        />
+                    )}
+                    <div className="ml-6 flex flex-col justify-evenly" >
+                        <h4 className="font-semibold" >{course?.mentor?.name}</h4>
+                        <p  className="text-sm text-gray-400 font-light">{course?.mentor?.profession}</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* footer */}
             <section className="mt-32 bg-biru-3 py-12">
                 <div className="container mx-auto" ref={footer}>
                     <Footer />
