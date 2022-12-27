@@ -62,13 +62,11 @@
 }
 
 .course:hover figure.course-image svg.play-btn {
-    /*  */
     opacity: 1;
     margin-top: 0;
     transform: translateY(0%) translateX(-50%) rotate(0);
 }
 .course figure.course-image::before {
-    /*  */
     content: "";
     @apply bg-indigo-900 absolute inset-0 opacity-0 transition-all duration-300;
 }
@@ -182,9 +180,35 @@
 .accordion-item-enter-active {
     opacity: 1;
 }
-.accordion-item-exit{
+.accordion-item-exit {
     opacity: 1;
 }
 .accordion-item-exit-active {
     opacity: 0;
+}
+
+svg#svg-star {
+    position: absolute;
+    height: 0;
+    width: 0;
+    left: -9999px;
+    bottom: 9999px;
+}
+
+.stars {
+    @apply relative inline-flex min-w-[200px];
+}
+.stars .star {
+    @apply absolute inline-flex;
+    clip-path: url(#star);
+}
+
+.stars .star:not(.placeholder) {
+    z-index: 2;
+    @apply bg-yellow-400;
+}
+
+.stars .star.placeholder {
+    z-index: 1;
+    @apply bg-gray-200;
 }

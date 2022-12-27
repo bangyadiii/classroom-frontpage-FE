@@ -12,6 +12,7 @@ import { useEffect, useRef, useState } from "react";
 import formatThousand from "src/helper/formatThousand";
 import CoursePhoto from "src/components/CoursePhoto";
 import RenderPreviews from "src/partials/Details/RenderPreviews";
+import Review from "src/components/Review";
 
 function DetailCourse({ course }) {
     const footer = useRef(null);
@@ -190,13 +191,30 @@ function DetailCourse({ course }) {
                             className={`rounded-full bg-gray-400 flex justify-center items-center text-gray-200 font-mono`}
                         />
                     )}
-                    <div className="ml-6 flex flex-col justify-evenly" >
-                        <h4 className="font-semibold" >{course?.mentor?.name}</h4>
-                        <p  className="text-sm text-gray-400 font-light">{course?.mentor?.profession}</p>
+                    <div className="ml-6 flex flex-col justify-evenly">
+                        <h4 className="font-semibold">
+                            {course?.mentor?.name}
+                        </h4>
+                        <p className="text-sm text-gray-400 font-light">
+                            {course?.mentor?.profession}
+                        </p>
                     </div>
                 </div>
             </section>
-
+            <section className="container mx-auto px-10 mt-10">
+                <div className="w-1/2">
+                    <h2 className="text-2xl font-medium my-5 leading-relaxed">
+                        Happy <span className="text-teal-500">Student</span>
+                    </h2>
+                    {course?.reviews.length > 0 ? (
+                        course?.reviews.map((review, index) => {
+                            return <Review key={index} />;
+                        })
+                    ) : (
+                        <div>No Reviews Found</div>
+                    )}
+                </div>
+            </section>
             {/* footer */}
             <section className="mt-32 bg-biru-3 py-12">
                 <div className="container mx-auto" ref={footer}>

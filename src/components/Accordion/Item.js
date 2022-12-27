@@ -23,7 +23,7 @@ export default function Item({ name, id, child, active, toggle, children }) {
                 >
                     {child && child.length > 0 && (
                         <ArrowDown
-                            className={`transition-all transform 
+                            className={`transition-all transform text-sm
                             ${active === id ? "rotate-180" : "rotate-0"}`}
                         ></ArrowDown>
                     )}

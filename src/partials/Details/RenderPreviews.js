@@ -56,18 +56,18 @@ export default function RenderPreviews({ previews }) {
                                                 </Modal>
                                             )}
                                             {i === 0 && (
-                                                <IconPlay
-                                                    className="fill-teal-500"
-                                                    height={20}
-                                                    width={20}
-                                                />
+                                                <span className="text-teal-500">
+                                                    <IconPlay className="text-teal-500 text-xl" />
+                                                </span>
                                             )}
                                             {i !== 0 && (
-                                                <IconLock
-                                                    className="fill-teal-500"
-                                                    height={20}
-                                                    width={20}
-                                                />
+                                                <span>
+                                                    <IconLock
+                                                        className="fill-teal-500"
+                                                        height={20}
+                                                        width={20}
+                                                    />
+                                                </span>
                                             )}
                                         </div>
                                     );

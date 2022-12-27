@@ -1,17 +1,14 @@
-const withCss = require("@zeit/next-css");
-const withImageSVG = require("next-react-svg");
-const withPlugins = require("next-compose-plugins");
-const withImages = require("next-images");
-const path = require("path");
-
-module.exports = withPlugins([
-    withCss({}),
-    withImages({}),
-    withImageSVG({
-        include: path.resolve(__dirname, "./public/images"),
-        
-        webpack(config, options) { 
-            return config;
-        },
-    }),
-]);
+module.exports = {
+    reactStrictMode: true,
+    webpack(config) {
+        config.module.rules.push({
+            test: /\.svg$/,
+            use: [{ loader: "@svgr/webpack", options: { icon: true } }],
+        });
+        return config;
+    },
+    publicRuntimeConfig: {
+        backendUrl: process.env.API_GATEWAY_BASE_URL,
+        REQUEST_TIMEOUT: process.env.REQUEST_TIMEOUT,
+    },
+};

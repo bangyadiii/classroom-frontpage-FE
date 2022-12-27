@@ -9,8 +9,11 @@ function Navbar({ onLight }) {
     return (
         <nav className="flex justify-between items-centers">
             <div style={{ height: 54 }}>
-                <Link href="/">
-                    <LogoApp className="onLight fill-white" />
+                <Link href="/" as={`/`}>
+                    <span className="relative">
+                        <LogoApp className="onLight fill-white text-4xl" />
+                        <a className="link-wrapped"></a>
+                    </span>
                 </Link>
             </div>
             <ul className="flex items-center">
