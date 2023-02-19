@@ -6,7 +6,7 @@ Classroom is a education platform that provide courses based on videos. This rep
 
 ## How to use this repository
 
--   Fill the value in `.env` file based on your case. If you're my teammates in this project, ask me for the S3 credentials and AWS RDS credentials.
+-   Fill the value in `.env` file based on your case.
 -   Run migration with :
     ```bash
     $ npm install
